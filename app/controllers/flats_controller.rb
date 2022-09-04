@@ -10,4 +10,23 @@ class FlatsController < ApplicationController
       }
     end
   end
+
+  def new
+    @flat = Flat.new
+  end
+
+  def create
+    @flat = Flat.new(flat_params)
+    if @flat.save
+      redirect_to flats_path, status: :see_other
+    else
+      render new_flat_path, status: :unprocessable_entity
+    end
+  end
+
+  private
+
+  def flat_params
+    params.require(:flat).permit(:name, :address, :latitude, :longitude)
+  end
 end
