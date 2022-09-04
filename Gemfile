@@ -78,3 +78,6 @@ end
 
 # Geocoder gem
 gem "geocoder"
+
+# Faker gem
+gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'master'
